@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Gym-App</string>
+    <string name="loginText">Iniciar sesion</string>
+    <string name="username">Usuario</string>
+    <string name="loginButton">Iniciar sesion</string>
+    <string name="register">Registrarse</string>
+    <string name="rememberMe">Recuerdame</string>
+    <string name="accountRegister">¿No tienes cuenta? Registrate aqui</string>
+    <string name="password">Contraseña</string>
+    <string name="logoDesc">logo</string>
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellidos</string>
+    <string name="email">Correo</string>
+    <string name="Birthday">Fecha de nacimiento</string>
+    <string name="login">Usuario</string>
+    <string name="registerButton">Registro</string>
+    <string name="go_back">Volver</string>
 </resources>
