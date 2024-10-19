@@ -15,4 +15,10 @@
     <string name="login">Usuario</string>
     <string name="registerButton">Registro</string>
     <string name="go_back">Volver</string>
+
+    <string-array name="items">
+        <item>Cliente</item>
+        <item>Entrenador</item>
+    </string-array>
+    
 </resources>
