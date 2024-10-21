@@ -10,18 +10,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.math.log
 
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
-        auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
         val returnButton: Button = findViewById(R.id.buttonGoBack)
@@ -47,34 +46,35 @@ class RegisterActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
             val authority = spinner.selectedItem.toString()
 
-            val user = hashMapOf(
-                "name" to name,
-                "lastName" to lastName,
-                "mail" to mail,
-                "birthDate" to birthDate,
-                "login" to login,
-                "password" to password,
-                "level" to 0,
-                "authority" to authority
-            )
-            firestore.collection("users").add(user)
-                .addOnSuccessListener {
-                    Toast.makeText(
-                        this,
-                        "Usuario registrado con exito",
-                        Toast.LENGTH_SHORT
-                    ).show()
+            if (name.isBlank() || lastName.isBlank() || mail.isBlank() || birthDate.isBlank() || login.isBlank() || password.isBlank() || authority.isNullOrBlank()) {
+                Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                val user = hashMapOf(
+                    "name" to name,
+                    "lastName" to lastName,
+                    "mail" to mail,
+                    "birthDate" to birthDate,
+                    "login" to login,
+                    "password" to password,
+                    "level" to 0,
+                    "authority" to authority
+                )
+                firestore.collection("users").add(user).addOnSuccessListener {
+                        Toast.makeText(
+                            this, "Usuario registrado con exito", Toast.LENGTH_SHORT
+                        ).show()
 
-                    val intent = Intent(this, WorkoutsActivity::class.java)
-                    startActivity(intent)
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(
-                        this,
-                        "Error al registrar el usuario: $e",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    }.addOnFailureListener { e ->
+                        Toast.makeText(
+                            this, "Error al registrar el usuario: $e", Toast.LENGTH_SHORT
+                        ).show()
+                    }
+            }
+
+
         }
     }
 }
