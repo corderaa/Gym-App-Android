@@ -65,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                             this, "Usuario registrado con exito", Toast.LENGTH_SHORT
                         ).show()
 
-                        val intent = Intent(this, WorkoutsActivity::class.java)
+                        val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                     }.addOnFailureListener { e ->
                         Toast.makeText(
