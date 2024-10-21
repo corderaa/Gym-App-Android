@@ -12,6 +12,160 @@
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="129dp"
+        android:layout_height="110dp"
+        app:srcCompat="@drawable/img_5357"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textViewNameLastName"
+        android:layout_width="225dp"
+        android:layout_height="35dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="413dp"
+        android:layout_height="421dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="191dp">
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="Login"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="Mail"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="Level"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="TIpo Usuario"
+            app:layout_column="0"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="291dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="TextView"
+            app:layout_column="0"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="TextView"
+            app:layout_column="0"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="TextView"
+            app:layout_column="0"
+            app:layout_row="6" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="6" />
+
+        <TextView
+            android:id="@+id/lblAuthority"
+            android:layout_width="122dp"
+            android:layout_height="47dp"
+            android:text="TextView"
+            app:layout_column="0"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/textViewAuthority"
+            android:layout_width="287dp"
+            android:layout_height="46dp"
+            android:text="TextView"
+            app:layout_column="1"
+            app:layout_row="7" />
+
+    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
