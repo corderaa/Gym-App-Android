@@ -19,6 +19,7 @@
     <string name="modify">Modificar</string>
     <string name="delete">Eliminar</string>
     <string name="coach">Entrenador</string>
+    <string name="Search">Buscar</string>
 
     <string-array name="items">
         <item>Cliente</item>
