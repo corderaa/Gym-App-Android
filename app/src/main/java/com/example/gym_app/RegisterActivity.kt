@@ -60,20 +60,22 @@ class RegisterActivity : AppCompatActivity() {
                     "level" to 0,
                     "authority" to authority
                 )
+
                 firestore.collection("users").add(user).addOnSuccessListener {
-                        Toast.makeText(
-                            this, "Usuario registrado con exito", Toast.LENGTH_SHORT
-                        ).show()
+                    Toast.makeText(
+                        this, "Usuario registrado con exito", Toast.LENGTH_SHORT
+                    ).show()
 
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                    }.addOnFailureListener { e ->
-                        Toast.makeText(
-                            this, "Error al registrar el usuario: $e", Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.putExtra("password", password)
+                    intent.putExtra("login", login)
+                    startActivity(intent)
+                }.addOnFailureListener { e ->
+                    Toast.makeText(
+                        this, "Error al registrar el usuario: $e", Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
 
         }
     }
