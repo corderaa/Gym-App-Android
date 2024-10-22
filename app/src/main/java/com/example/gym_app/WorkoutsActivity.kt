@@ -3,6 +3,7 @@ package com.example.gym_app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class WorkoutsActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class WorkoutsActivity : AppCompatActivity() {
         val returnButton: Button = findViewById(R.id.returnButton)
         val profileButton: Button = findViewById(R.id.profileButton)
         val coachButton: Button = findViewById(R.id.coachButton)
+        val playButton: Button = findViewById(R.id.playButton)
 
         returnButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -25,6 +27,10 @@ class WorkoutsActivity : AppCompatActivity() {
         }
         coachButton.setOnClickListener {
             val intent = Intent(this, CoachActivity::class.java)
+            startActivity(intent)
+        }
+        playButton.setOnClickListener {
+            val intent = Intent(this, PlayActivity::class.java)
             startActivity(intent)
         }
     }
