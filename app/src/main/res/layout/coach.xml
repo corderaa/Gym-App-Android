@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/aquamarine"
         android:text="@string/go_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTitleCoach"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textViewTitleCoach"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonAdd"
@@ -54,40 +54,40 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewTitleCoach"
         android:layout_width="218dp"
         android:layout_height="63dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/coach"
         android:textColor="@color/aquamarine"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonFilter"
         app:layout_constraintEnd_toStartOf="@+id/bottonReturn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/imageButtonFilter"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewLogo"
         android:layout_width="82dp"
         android:layout_height="79dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTitleCoach"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cagaroo"
         tools:layout_editor_absoluteX="49dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButtonFilter"
         android:layout_width="62dp"
         android:layout_height="63dp"
         android:background="@color/lightAquamarine"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTitleCoach"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleCoach"
         app:srcCompat="@drawable/logofiltrar" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -105,18 +105,123 @@
         app:layout_constraintGuide_begin="256dp" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/editTextTextSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageButton"
-        app:layout_constraintTop_toBottomOf="@id/textView"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageButtonFilter"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitleCoach"
         tools:layout_editor_absoluteX="140dp"
         tools:layout_editor_absoluteY="188dp" />
+
+    <Spinner
+        android:id="@+id/spinnerWorkouts"
+        android:layout_width="408dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDescription"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerWorkouts"
+        tools:layout_editor_absoluteX="17dp" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLevel"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"
+        tools:layout_editor_absoluteX="17dp" />
+
+    <TextView
+        android:id="@+id/textViewLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level"
+        app:layout_constraintBottom_toTopOf="@+id/textViewVideo"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+        tools:layout_editor_absoluteX="17dp" />
+
+    <TextView
+        android:id="@+id/textViewVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/video"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLevel"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="113dp" />
+
+    <TextView
+        android:id="@+id/textViewNameShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameShow"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDescriptionShow"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerWorkouts"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="224dp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descriptionShow"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLevelShow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameShow"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="224dp" />
+
+    <TextView
+        android:id="@+id/textViewLevelShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/levelShow"
+        app:layout_constraintBottom_toTopOf="@+id/textViewVideoShow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionShow"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="225dp" />
+
+    <TextView
+        android:id="@+id/textViewVideoShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/videoShow"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLevelShow"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="227dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

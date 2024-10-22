@@ -20,6 +20,13 @@
     <string name="delete">Eliminar</string>
     <string name="coach">Entrenador</string>
     <string name="Search">Buscar</string>
+    <string name="description">Descripcion</string>
+    <string name="level">Nivel</string>
+    <string name="video">Video</string>
+    <string name="nameShow">MostrarNombre</string>
+    <string name="descriptionShow">MostrarDescripcion</string>
+    <string name="levelShow">MostrarNivel</string>
+    <string name="videoShow">MostrarVideo</string>
 
     <string-array name="items">
         <item>Cliente</item>
