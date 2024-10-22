@@ -48,11 +48,8 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.protolite.well.known.types)
-<<<<<<< HEAD
     implementation(libs.androidx.gridlayout)
-=======
     implementation(libs.firebase.firestore.ktx)
->>>>>>> a9bc3f86318b7aa8e250a928c74e1eb625e61598
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
