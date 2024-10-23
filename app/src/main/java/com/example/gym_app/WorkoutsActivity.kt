@@ -3,7 +3,6 @@ package com.example.gym_app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class WorkoutsActivity : AppCompatActivity() {
@@ -20,6 +19,7 @@ class WorkoutsActivity : AppCompatActivity() {
         returnButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
         profileButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)

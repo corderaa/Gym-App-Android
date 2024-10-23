@@ -1,5 +1,6 @@
 package com.example.gym_app
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -18,19 +19,27 @@ class LoginActivity : AppCompatActivity() {
         val rememberMe: CheckBox = findViewById(R.id.rememberMe)
         val userText: EditText = findViewById(R.id.userText)
         val passwordText: EditText = findViewById(R.id.passwordText)
-        lateinit var sharedP: SharedPreferences
+        val sharedP: SharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
 
+        userText.setText(sharedP.getString("user", ""))
+        passwordText.setText(sharedP.getString("password", ""))
+        if (userText.text.isEmpty() && passwordText.text.isEmpty()) {
+            rememberMe.isChecked = false
+        } else {
+            rememberMe.isChecked = true
+        }
         registerButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
         goingToMenu.setOnClickListener {
             val intent = Intent(this, WorkoutsActivity::class.java)
             startActivity(intent)
-            if(rememberMe.isActivated){
+            if(rememberMe.isChecked){
                 val editor: SharedPreferences.Editor = sharedP.edit()
-                editor.putString("user", userText.text.toString())
-                editor.putString("password", passwordText.text.toString())
+                editor.putString("user", userText.text.toString().trim())
+                editor.putString("password", passwordText.text.toString().trim())
                 editor.apply()
             } else {
                 val editor: SharedPreferences.Editor = sharedP.edit()
