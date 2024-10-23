@@ -82,7 +82,7 @@
         android:id="@+id/imageButtonFilter"
         android:layout_width="62dp"
         android:layout_height="63dp"
-        android:background="@color/lightAquamarine"
+        android:background="@color/backgroundColor"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/textViewTitleCoach"
         app:layout_constraintHorizontal_bias="0.5"

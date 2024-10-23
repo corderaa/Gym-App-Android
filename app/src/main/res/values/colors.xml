@@ -3,5 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="aquamarine">#116173</color>
-    <color name="lightAquamarine">#7AB7CC</color>
+    <color name="backgroundColor">#FCF5FD</color>
 </resources>
