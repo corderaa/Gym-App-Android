@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.gym_app.model.WorkOutItem
+import com.example.gym_app.model.WorkoutItemArrayAdapter
 
 class WorkoutsActivity : AppCompatActivity() {
 
@@ -15,12 +18,23 @@ class WorkoutsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.workouts)
 
+        val myList = findViewById<ListView>(R.id.listView)
+        val workoutItem = mutableListOf<WorkOutItem>()
+
+        // DumMy items
+        workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
+        workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
+
+
+
+        val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
+        myList.adapter = adapter
+
         firestore = FirebaseFirestore.getInstance()
 
         val returnButton: Button = findViewById(R.id.returnButton)
         val profileButton: Button = findViewById(R.id.profileButton)
         val coachButton: Button = findViewById(R.id.coachButton)
-        val playButton: Button = findViewById(R.id.playButton)
 
         val completionDate: String
         val completionProgress: String

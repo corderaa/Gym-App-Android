@@ -31,6 +31,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".WorkoutsActivity" />
         <activity android:name=".PlayActivity" />
+        <activity android:name=".WorkOutItem" />
 
         <meta-data
             android:name="preloaded_fonts"
