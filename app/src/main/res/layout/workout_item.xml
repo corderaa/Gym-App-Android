@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textRealTime"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Tiempo Real"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPredictedTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLevel" />
+
+    <TextView
+        android:id="@+id/textViewPredictedTime"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Tiempo Previsto"
+        app:layout_constraintBottom_toTopOf="@+id/textViewWorkoutDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRealTime" />
+
+    <TextView
+        android:id="@+id/textViewWorkoutDate"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Fecha"
+        app:layout_constraintBottom_toTopOf="@+id/textViewExercisesDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPredictedTime" />
+
+    <TextView
+        android:id="@+id/textViewExercisesDone"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Ejercicios Completados"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWorkoutDate" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Nombre"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLevel"
+        android:layout_width="384dp"
+        android:layout_height="34dp"
+        android:text="Nivel"
+        app:layout_constraintBottom_toTopOf="@+id/textRealTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="203dp"
+        android:layout_height="42dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewExercisesDone" />
+</androidx.constraintlayout.widget.ConstraintLayout>
