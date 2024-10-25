@@ -15,6 +15,7 @@ class ProfileActivity : AppCompatActivity() {
         returnButton.setOnClickListener {
             val intent = Intent(this, WorkoutsActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

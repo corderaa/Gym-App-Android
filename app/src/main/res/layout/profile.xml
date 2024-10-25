@@ -13,10 +13,9 @@
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -24,16 +23,15 @@
         android:layout_height="110dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewNameLastName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
         app:srcCompat="@drawable/img_5357" />
 
     <TextView
         android:id="@+id/textViewNameLastName"
         android:layout_width="329dp"
         android:layout_height="37dp"
-        android:layout_marginBottom="40dp"
         android:text="NOMBRE Y APELLIDOS"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -41,23 +39,24 @@
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="413dp"
         android:layout_height="421dp"
-        android:layout_marginBottom="172dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-1dp">
+        app:layout_constraintBottom_toTopOf="@+id/buttonReturn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameLastName">
 
         <TextView
             android:id="@+id/lblLogin"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="Login:"
             android:paddingStart="20dp"
+            android:text="Login:"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             app:layout_column="0"
@@ -78,8 +77,8 @@
             android:id="@+id/lblMail"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="Correo:"
             android:paddingStart="20dp"
+            android:text="Correo:"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             app:layout_column="0"
@@ -100,8 +99,8 @@
             android:id="@+id/lblLavel"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="Nivel:"
             android:paddingStart="20dp"
+            android:text="Nivel:"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             app:layout_column="0"
@@ -122,8 +121,8 @@
             android:id="@+id/lblAuthority"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="Tipo Usuario:"
             android:paddingStart="20dp"
+            android:text="Tipo Usuario:"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             app:layout_column="0"
@@ -155,8 +154,8 @@
             android:id="@+id/lblBirthDate"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="Fecha Nacimiento:"
             android:paddingStart="20dp"
+            android:text="Fecha Nacimiento:"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             app:layout_column="0"
