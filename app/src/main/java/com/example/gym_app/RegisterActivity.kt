@@ -8,9 +8,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.math.log
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -76,7 +74,6 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-
         }
     }
 }
