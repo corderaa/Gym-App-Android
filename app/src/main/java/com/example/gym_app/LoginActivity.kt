@@ -43,6 +43,12 @@ class LoginActivity : AppCompatActivity() {
             rememberMe.isChecked = true
         }
 
+        goingToMenu.setOnClickListener {
+            val intent = Intent(this, WorkoutsActivity::class.java)
+            startActivity(intent)
+        }
+
+
         loginButton.setOnClickListener {
             try {
                 firestore.collection("users").whereEqualTo("login", userText.text.toString()).get()
