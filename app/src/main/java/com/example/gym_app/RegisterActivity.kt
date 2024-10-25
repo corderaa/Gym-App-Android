@@ -2,6 +2,7 @@ package com.example.gym_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -58,20 +59,34 @@ class RegisterActivity : AppCompatActivity() {
                     "level" to 0,
                     "authority" to authority
                 )
+                try {
+                    firestore.collection("users").whereEqualTo("login", login).get()
+                        .addOnSuccessListener { result ->
+                            if (!result.isEmpty)
+                                Toast.makeText(this, "El login ya existe", Toast.LENGTH_SHORT)
+                                    .show()
+                            else {
+                                firestore.collection("users").add(user).addOnSuccessListener {
+                                    Toast.makeText(
+                                        this, "Usuario registrado con exito", Toast.LENGTH_SHORT
+                                    ).show()
 
-                firestore.collection("users").add(user).addOnSuccessListener {
-                    Toast.makeText(
-                        this, "Usuario registrado con exito", Toast.LENGTH_SHORT
-                    ).show()
+                                    val intent = Intent(this, LoginActivity::class.java)
+                                    intent.putExtra("password", password)
+                                    intent.putExtra("login", login)
+                                    startActivity(intent)
+                                }.addOnFailureListener { e ->
+                                    Toast.makeText(
+                                        this,
+                                        "Error al registrar el usuario: $e",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
 
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.putExtra("password", password)
-                    intent.putExtra("login", login)
-                    startActivity(intent)
-                }.addOnFailureListener { e ->
-                    Toast.makeText(
-                        this, "Error al registrar el usuario: $e", Toast.LENGTH_SHORT
-                    ).show()
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
         }
