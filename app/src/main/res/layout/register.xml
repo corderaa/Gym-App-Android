@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:hint="@string/Birthday"
+                android:hint="@string/birthday"
                 android:inputType="date"
                 tools:layout_editor_absoluteX="16dp" />
 

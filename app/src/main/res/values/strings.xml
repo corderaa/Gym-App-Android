@@ -11,7 +11,7 @@
     <string name="name">Nombre</string>
     <string name="last_name">Apellidos</string>
     <string name="email">Correo</string>
-    <string name="Birthday">Fecha de nacimiento</string>
+    <string name="birthday">Fecha de nacimiento</string>
     <string name="login">Usuario</string>
     <string name="registerButton">Registro</string>
     <string name="go_back">Volver</string>
@@ -27,6 +27,7 @@
     <string name="descriptionShow">MostrarDescripcion</string>
     <string name="levelShow">MostrarNivel</string>
     <string name="videoShow">MostrarVideo</string>
+    <string name="role">Tipo Usuario:</string>
 
     <string-array name="items">
         <item>Cliente</item>
