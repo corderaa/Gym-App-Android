@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#116173"
-        android:text="Volver"
+        android:text="@string/go_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.805"
@@ -32,7 +32,7 @@
         android:id="@+id/textViewNameLastName"
         android:layout_width="329dp"
         android:layout_height="37dp"
-        android:text="NOMBRE Y APELLIDOS"
+        android:text="@string/name_and_surname"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -165,7 +165,7 @@
             android:id="@+id/lblTema"
             android:layout_width="195dp"
             android:layout_height="47dp"
-            android:text="tema"
+            android:text="@string/theme"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_column="0"
@@ -176,7 +176,8 @@
             android:layout_width="223dp"
             android:layout_height="wrap_content"
             app:layout_column="1"
-            app:layout_row="6" />
+            app:layout_row="6"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

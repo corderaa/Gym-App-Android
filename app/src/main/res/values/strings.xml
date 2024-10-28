@@ -28,6 +28,8 @@
     <string name="levelShow">MostrarNivel</string>
     <string name="videoShow">MostrarVideo</string>
     <string name="role">Tipo Usuario:</string>
+    <string name="name_and_surname">NOMBRE Y APELLIDOS</string>
+    <string name="theme">tema</string>
 
     <string-array name="items">
         <item>Cliente</item>
