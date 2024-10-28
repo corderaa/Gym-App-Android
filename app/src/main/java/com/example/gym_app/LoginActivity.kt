@@ -48,27 +48,32 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         loginButton.setOnClickListener {
             try {
                 firestore.collection("users").whereEqualTo("login", userText.text.toString()).get()
                     .addOnSuccessListener { result ->
-                        for (document in result) {
-                            Log.d(TAG, "GETTING ${document.id} => ${document.data}")
-                            if (document.get("login")
-                                    ?.equals(userText.text.toString()) == true && document.get("password")
-                                    ?.equals(passwordText.text.toString()) == true
-                            ) {
-                                Toast.makeText(
-                                    this, "login correcto", Toast.LENGTH_SHORT
-                                ).show()
-                                Log.d(TAG, "logged in")
-                                goToMenu(rememberMe, sharedP, passwordText, userText)
-                            } else {
-                                Toast.makeText(
-                                    this, "Usuario o contraseña incorrectas", Toast.LENGTH_SHORT
-                                ).show()
+                        if (!result.isEmpty) {
+                            for (document in result) {
+                                Log.d(TAG, "GETTING ${document.id} => ${document.data}")
+                                if (document.get("login")
+                                        ?.equals(userText.text.toString()) == true && document.get("password")
+                                        ?.equals(passwordText.text.toString()) == true
+                                ) {
+                                    Toast.makeText(
+                                        this, "login correcto", Toast.LENGTH_SHORT
+                                    ).show()
+                                    Log.d(TAG, "logged in")
+                                    goToMenu(rememberMe, sharedP, passwordText, userText)
+                                } else {
+                                    Toast.makeText(
+                                        this, "Usuario o contraseña incorrectas", Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
+                        }else{
+                            Toast.makeText(
+                                this, "El usuario no existe", Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                     .addOnFailureListener { e ->
