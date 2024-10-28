@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
         val sharedP: SharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
         val loginButton: Button = findViewById(R.id.loginButton)
 
-        userText.setText(sharedP.getString("user", ""))
-        passwordText.setText(sharedP.getString("password", ""))
+        userText.setText(sharedP.getString("user", intent.getStringExtra("login")))
+        passwordText.setText(sharedP.getString("password", intent.getStringExtra("password")))
         if (userText.text.isEmpty() && passwordText.text.isEmpty()) {
             rememberMe.isChecked = false
         } else {
