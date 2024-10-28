@@ -26,7 +26,6 @@ class WorkoutsActivity : AppCompatActivity() {
         workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
 
 
-
         val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
         myList.adapter = adapter
 
@@ -47,9 +46,9 @@ class WorkoutsActivity : AppCompatActivity() {
         var filterNumber: Int
         filterNumber = 4
 
-        firestore.collection("workouts").whereLessThanOrEqualTo("level",filterNumber).get()
-            .addOnSuccessListener{ documents ->
-                if(!documents.isEmpty) {
+        firestore.collection("workouts").whereLessThanOrEqualTo("level", filterNumber).get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
                     for (document in documents) {
 
                     }
@@ -73,10 +72,6 @@ class WorkoutsActivity : AppCompatActivity() {
         }
         coachButton.setOnClickListener {
             val intent = Intent(this, CoachActivity::class.java)
-            startActivity(intent)
-        }
-        playButton.setOnClickListener {
-            val intent = Intent(this, PlayActivity::class.java)
             startActivity(intent)
         }
     }
