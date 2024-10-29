@@ -20,6 +20,7 @@ class WorkoutsActivity : AppCompatActivity() {
 
         val myList = findViewById<ListView>(R.id.listView)
         val workoutItem = mutableListOf<WorkOutItem>()
+        val login = intent.getStringExtra("login")
 
         // DumMy items
         workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
@@ -68,7 +69,7 @@ class WorkoutsActivity : AppCompatActivity() {
         }
         profileButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
-            intent.putExtra("login", intent.getStringExtra("login"))
+            intent.putExtra("login", login)
             startActivity(intent)
         }
         coachButton.setOnClickListener {
