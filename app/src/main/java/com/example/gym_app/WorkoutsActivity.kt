@@ -68,6 +68,7 @@ class WorkoutsActivity : AppCompatActivity() {
         }
         profileButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("login", intent.getStringExtra("login"))
             startActivity(intent)
         }
         coachButton.setOnClickListener {
