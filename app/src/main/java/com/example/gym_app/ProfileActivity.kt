@@ -26,11 +26,30 @@ class ProfileActivity : AppCompatActivity() {
 
         try {
 
-            loginTextView.text = "${intent.getStringExtra("LOGIN")}"
+            firestore.collection("users").whereEqualTo("login", intent.getStringExtra("login"))
+                .get().addOnSuccessListener { data ->
+                if (!data.isEmpty()) {
+                    for (document in data) {
+                        loginTextView.text = "${document.getString("login")}"
+                        gmailTextView.text = "${document.getString("email")}"
+                        levelTextView.text = "${document.getLong("level")}"
+                        userTypeTextView.text = "${document.getString("authority")}"
+                        birthdayTextView.text = "${document.getString("birthday")}"
+                    }
+                } else {
+                    loginTextView.text = "No disponible"
+                    gmailTextView.text = "No disponible"
+                    levelTextView.text = "No disponible"
+                    userTypeTextView.text = "No disponible"
+                    birthdayTextView.text = "No disponible"
+                }
+            }
+
+            /** loginTextView.text = "${intent.getStringExtra("LOGIN")}"
             gmailTextView.text = "${intent.getStringExtra("EMAIL")}"
             levelTextView.text = "${intent.getIntExtra("LEVEL", 0)}"
             userTypeTextView.text = "${intent.getStringExtra("AUTHORITY")}"
-            birthdayTextView.text = "${intent.getStringExtra("BIRTHDAY")}"
+            birthdayTextView.text = "${intent.getStringExtra("BIRTHDAY")}" **/
 
         } catch (e: Exception) {
             loginTextView.text = "Login: Not available"

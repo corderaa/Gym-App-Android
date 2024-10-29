@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
 
         goingToMenu.setOnClickListener {
             val intent = Intent(this, WorkoutsActivity::class.java)
+            intent.putExtra("login", intent.getStringExtra("login"))
             startActivity(intent)
         }
 
