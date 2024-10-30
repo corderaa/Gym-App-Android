@@ -10,7 +10,7 @@ import com.example.gym_app.R
 
 class CoachItem(
     var workoutName: String,
-    var workoutLevel: Long?,
+    var workoutLevel: String,
     var workoutDescription: String,
     var workoutVideoUrl: String,
 )
