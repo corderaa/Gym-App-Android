@@ -12,8 +12,8 @@ import com.example.gym_app.PlayActivity
 import com.example.gym_app.R
 
 class WorkOutItem(
-    var userName: String,
-    var userLevel: Int,
+    var workoutName: String,
+    var workoutLevel: Int,
     var realTime: String,
     var predictedTime: String,
     var workoutDate: String,
@@ -38,8 +38,8 @@ class WorkoutItemArrayAdapter(
         val button = view.findViewById<TextView>(R.id.button)
 
         getItem(position)?.let {
-            userName.text = it.userName
-            userLevel.text = it.userLevel.toString()
+            userName.text = it.workoutName
+            userLevel.text = it.workoutLevel.toString()
             realTime.text = it.realTime
             predictedTime.text = it.predictedTime
             workoutDate.text = it.workoutDate
