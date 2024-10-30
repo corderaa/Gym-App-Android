@@ -60,6 +60,17 @@ class LoginActivity : AppCompatActivity() {
                                         ?.equals(userText.text.toString()) == true && document.get("password")
                                         ?.equals(passwordText.text.toString()) == true
                                 ) {
+                                    UserSesion.setUserLogin(document.get("login").toString())
+                                    UserSesion.setUserName(document.get("name").toString())
+                                    UserSesion.setUserAuthority(
+                                        document.get("authority").toString()
+                                    )
+                                    UserSesion.setBirthDate(document.getLong("birthDate"))
+                                    UserSesion.setUserLevel(document.getLong("level"))
+                                    UserSesion.setUserMail(document.get("mail").toString())
+                                    UserSesion.setUserLastName(document.get("lastName").toString())
+                                    UserSesion.setUserPassword(document.get("password").toString())
+
                                     Toast.makeText(
                                         this, "login correcto", Toast.LENGTH_SHORT
                                     ).show()
@@ -71,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
                                     ).show()
                                 }
                             }
-                        }else{
+                        } else {
                             Toast.makeText(
                                 this, "El usuario no existe", Toast.LENGTH_SHORT
                             ).show()
