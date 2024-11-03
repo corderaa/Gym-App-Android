@@ -10,6 +10,8 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -44,16 +46,21 @@ class RegisterActivity : AppCompatActivity() {
             val login = findViewById<EditText>(R.id.editTextText3).text.toString()
             val password = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
             val authority = spinner.selectedItem.toString()
+            val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val date = simpleDateFormat.parse(birthDate)
+
+
 
             if (name.isBlank() || lastName.isBlank() || mail.isBlank() || birthDate.isBlank() || login.isBlank() || password.isBlank() || authority.isNullOrBlank()) {
                 Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT)
                     .show()
+
             } else {
                 val user = hashMapOf(
                     "name" to name,
                     "lastName" to lastName,
                     "mail" to mail,
-                    "birthDate" to birthDate,
+                    "birthDate" to date.time,
                     "login" to login,
                     "password" to password,
                     "level" to 0,
