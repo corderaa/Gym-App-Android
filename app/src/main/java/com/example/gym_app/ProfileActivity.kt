@@ -23,18 +23,36 @@ class ProfileActivity : AppCompatActivity() {
         val levelTextView: TextView = findViewById(R.id.textViewLevel)
         val userTypeTextView: TextView = findViewById(R.id.textViewAuthority)
         val birthdayTextView: TextView = findViewById(R.id.textViewBirthDate)
+        val login = intent.getStringExtra("login")
 
-        try {
 
-            loginTextView.text = "${intent.getStringExtra("LOGIN")}"
-            gmailTextView.text = "${intent.getStringExtra("EMAIL")}"
-            levelTextView.text = "${intent.getIntExtra("LEVEL", 0)}"
-            userTypeTextView.text = "${intent.getStringExtra("AUTHORITY")}"
-            birthdayTextView.text = "${intent.getStringExtra("BIRTHDAY")}"
+        if (login != null) {
+            firestore.collection("users").whereEqualTo("login", login).get()
+                .addOnSuccessListener { data ->
+                    if (!data.isEmpty()) {
+                        for (document in data) {
+                            loginTextView.text = document.getString("login")
+                            gmailTextView.text = document.getString("mail")
+                            levelTextView.text = document.getLong("level")?.toString()
+                            userTypeTextView.text = document.getString("authority")
+                            //birthdayTextView.text = document.getLong("birthDate")?.toString()
+                        }
+                    }
+                }
 
-        } catch (e: Exception) {
-            loginTextView.text = "Login: Not available"
+        } else {
+            loginTextView.text = "No disponible"
+            gmailTextView.text = "No disponible"
+            levelTextView.text = "No disponible"
+            userTypeTextView.text = "No disponible"
+            birthdayTextView.text = "No disponible"
         }
+
+        /** loginTextView.text = "${intent.getStringExtra("LOGIN")}"
+        gmailTextView.text = "${intent.getStringExtra("EMAIL")}"
+        levelTextView.text = "${intent.getIntExtra("LEVEL", 0)}"
+        userTypeTextView.text = "${intent.getStringExtra("AUTHORITY")}"
+        birthdayTextView.text = "${intent.getStringExtra("BIRTHDAY")}" **/
 
         returnButton.setOnClickListener {
             val intent = Intent(this, WorkoutsActivity::class.java)

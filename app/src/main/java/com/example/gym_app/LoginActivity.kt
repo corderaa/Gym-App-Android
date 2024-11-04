@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
         userText.setText(sharedP.getString("user", intent.getStringExtra("login")))
         passwordText.setText(sharedP.getString("password", intent.getStringExtra("password")))
+
         if (userText.text.isEmpty() && passwordText.text.isEmpty()) {
             rememberMe.isChecked = false
         } else {
@@ -105,6 +106,7 @@ class LoginActivity : AppCompatActivity() {
         userText: TextView
     ) {
         val intent = Intent(this, WorkoutsActivity::class.java)
+        intent.putExtra("login", userText.text.toString())
         startActivity(intent)
         if (rememberMe.isChecked) {
             val editor: SharedPreferences.Editor = sharedP.edit()
