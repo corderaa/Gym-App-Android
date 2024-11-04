@@ -2,6 +2,7 @@ package com.example.gym_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import android.widget.ListView
@@ -36,25 +37,25 @@ class WorkoutsActivity : AppCompatActivity() {
         val profileButton: Button = findViewById(R.id.profileButton)
         val coachButton: Button = findViewById(R.id.coachButton)
 
-        val completionDate: String
+        val date: String
         val completionProgress: String
         val level: Int
-        val name: String
+        var name: String
         val estimatedTime: String
         val time: Int
         val videoURL: String
 
-        var filterNumber: Int
-        filterNumber = 4
-
-        firestore.collection("workouts").whereLessThanOrEqualTo("level", filterNumber).get()
-            .addOnSuccessListener { documents ->
-                if (!documents.isEmpty) {
-                    for (document in documents) {
-
+        val docRef = firestore.collection("users").whereEqualTo("login", login).get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    if(login!=null) {
+                        Log.i("users", login)
+                        Log.i("result", result.toString())
+                    }else {
+                        Log.i("usersElse", "error")
                     }
                 } else {
-                    Toast.makeText(this, "", Toast.LENGTH_SHORT)
+                    Toast.makeText(this, "Histórico vacío", Toast.LENGTH_SHORT)
                 }
 
             }
