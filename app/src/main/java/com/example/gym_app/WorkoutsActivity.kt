@@ -23,34 +23,44 @@ class WorkoutsActivity : AppCompatActivity() {
         val workoutItem = mutableListOf<WorkOutItem>()
         val login = intent.getStringExtra("login")
 
-        // DumMy items
-        workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
-        workoutItem.add(WorkOutItem("Push-ups", 10, "20 minutes", "14 minutes", "29 Enero", "50%"))
-
-
-        val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
-        myList.adapter = adapter
-
         firestore = FirebaseFirestore.getInstance()
 
         val returnButton: Button = findViewById(R.id.returnButton)
         val profileButton: Button = findViewById(R.id.profileButton)
         val coachButton: Button = findViewById(R.id.coachButton)
 
-        val date: String
-        val completionProgress: String
-        val level: Int
-        var name: String
-        val estimatedTime: String
-        val time: Int
-        val videoURL: String
+        var date: String?
+        var completionProgress: String?
+        var level: Int?
+        var name: String?
+        var estimatedTime: String?
+        var time: String?
+        var videoURL: String?
 
-        val docRef = firestore.collection("users").whereEqualTo("login", login).get()
+        firestore.collection("users").whereEqualTo("login", login).get()
             .addOnSuccessListener { result ->
                 if (!result.isEmpty) {
                     if(login!=null) {
-                        Log.i("users", login)
-                        Log.i("result", result.toString())
+                        for(document in result) {
+                            document.reference.collection("history").get()
+                                .addOnSuccessListener { historyResult ->
+                                    if (!historyResult.isEmpty){
+                                        for(documentHistory in historyResult){
+                                            name = documentHistory.getString("name")
+                                            date = documentHistory.getString("date")
+                                            completionProgress = documentHistory.getString("completionProgress")
+                                            level = documentHistory.getLong("level")?.toInt()
+                                            estimatedTime = documentHistory.getString("estimatedTime")
+                                            time = documentHistory.getString("time")
+                                            videoURL = documentHistory.getString("videoURL")
+                                            if(name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null)
+                                            workoutItem.add(WorkOutItem(name!! , level!! , time!!, estimatedTime!!, date!!, completionProgress!!))
+                                        }
+                                        val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
+                                        myList.adapter = adapter
+                                    }
+                                }
+                        }
                     }else {
                         Log.i("usersElse", "error")
                     }
@@ -62,6 +72,7 @@ class WorkoutsActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Error con la base de datos", Toast.LENGTH_SHORT)
             }
+
 
         returnButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
