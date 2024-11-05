@@ -30,10 +30,12 @@
     <string name="role">Tipo Usuario:</string>
     <string name="name_and_surname">NOMBRE Y APELLIDOS</string>
     <string name="theme">tema</string>
+    <string name="create_workout">CREAR WORKOUT</string>
+    <string name="button_create">Crear</string>
 
     <string-array name="items">
         <item>Cliente</item>
         <item>Entrenador</item>
     </string-array>
-    
+
 </resources>
