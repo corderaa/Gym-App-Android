@@ -17,7 +17,8 @@ class WorkOutItem(
     var realTime: String,
     var predictedTime: String,
     var workoutDate: String,
-    var exercisesDone: String
+    var exercisesDone: String,
+    var videoURL: String
 )
 
 class WorkoutItemArrayAdapter(
@@ -47,6 +48,7 @@ class WorkoutItemArrayAdapter(
         }
         button.setOnClickListener {
             val intent = Intent(context, PlayActivity::class.java)
+            intent.putExtra("videoURL", getItem(position)?.videoURL)
             context.startActivity(intent)
         }
         return view
