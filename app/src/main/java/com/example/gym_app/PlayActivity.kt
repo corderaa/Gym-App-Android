@@ -16,7 +16,9 @@ class PlayActivity : AppCompatActivity() {
 
 
         val videoView: WebView = findViewById(R.id.webView)
-        videoView.loadUrl("https://www.youtube.com/watch?v=jOTfBlKSQYY")
+        val videoURL = intent.getStringExtra("videoURL")
+        if (videoURL != null)
+            videoView.loadUrl(videoURL)
         videoView.settings.javaScriptEnabled = true
         videoView.webChromeClient = WebChromeClient()
     }

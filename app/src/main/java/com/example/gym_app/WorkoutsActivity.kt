@@ -53,8 +53,19 @@ class WorkoutsActivity : AppCompatActivity() {
                                             estimatedTime = documentHistory.getString("estimatedTime")
                                             time = documentHistory.getString("time")
                                             videoURL = documentHistory.getString("videoURL")
-                                            if(name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null)
-                                            workoutItem.add(WorkOutItem(name!! , level!! , time!!, estimatedTime!!, date!!, completionProgress!!))
+                                            if(name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null && videoURL != null) {
+                                                workoutItem.add(
+                                                    WorkOutItem(
+                                                        name!!,
+                                                        level!!,
+                                                        time!!,
+                                                        estimatedTime!!,
+                                                        date!!,
+                                                        completionProgress!!,
+                                                        videoURL!!
+                                                    )
+                                                )
+                                            }
                                         }
                                         val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
                                         myList.adapter = adapter
