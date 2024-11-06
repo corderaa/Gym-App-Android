@@ -36,6 +36,7 @@ class RegisterActivity : AppCompatActivity() {
         returnButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
         registerButton.setOnClickListener {
 
@@ -96,6 +97,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error: $e", Toast.LENGTH_SHORT).show()
                 }
             }
+            finish()
         }
     }
 }

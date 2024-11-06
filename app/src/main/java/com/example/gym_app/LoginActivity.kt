@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
                 Log.d(TAG, "ERROOR")
             }
-
+            finish()
         }
         registerButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

@@ -95,6 +95,7 @@ class WorkoutsActivity : AppCompatActivity() {
             intent.putExtra("login", login)
             startActivity(intent)
         }
+        // IF CLIENTE COACHBUTTON.SETVISIBILITY(INVISIBLE)
         coachButton.setOnClickListener {
             val intent = Intent(this, CoachActivity::class.java)
             startActivity(intent)

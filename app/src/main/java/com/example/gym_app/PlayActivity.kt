@@ -21,5 +21,6 @@ class PlayActivity : AppCompatActivity() {
             videoView.loadUrl(videoURL)
         videoView.settings.javaScriptEnabled = true
         videoView.webChromeClient = WebChromeClient()
+        finish()
     }
 }
