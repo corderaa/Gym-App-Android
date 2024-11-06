@@ -34,8 +34,6 @@ class RegisterActivity : AppCompatActivity() {
         spinner.adapter = adapter
 
         returnButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
             finish()
         }
         registerButton.setOnClickListener {
