@@ -47,7 +47,6 @@ class RegisterActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
             val authority = spinner.selectedItem.toString()
             val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            val date = simpleDateFormat.parse(birthDate)
 
 
 
@@ -56,6 +55,7 @@ class RegisterActivity : AppCompatActivity() {
                     .show()
 
             } else {
+                val date = simpleDateFormat.parse(birthDate)
                 val user = hashMapOf(
                     "name" to name,
                     "lastName" to lastName,
