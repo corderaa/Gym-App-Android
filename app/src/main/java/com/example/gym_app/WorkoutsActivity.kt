@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.gym_app.model.WorkOutItem
@@ -29,6 +31,8 @@ class WorkoutsActivity : AppCompatActivity() {
         val returnButton: Button = findViewById(R.id.returnButton)
         val profileButton: Button = findViewById(R.id.profileButton)
         val coachButton: Button = findViewById(R.id.coachButton)
+        val filterButton: ImageButton = findViewById(R.id.imageButtonFilter4)
+        val editTextSearch: TextView = findViewById(R.id.editTextTextSearch4)
 
         var date: String?
         var completionProgress: String?
@@ -100,6 +104,70 @@ class WorkoutsActivity : AppCompatActivity() {
         coachButton.setOnClickListener {
             val intent = Intent(this, CoachActivity::class.java)
             startActivity(intent)
+        }
+        filterButton.setOnClickListener {
+            if (!editTextSearch.text.isEmpty()) {
+                workoutItem.clear()
+                val historyLevel: Int
+                historyLevel = editTextSearch.text.toString().toInt()
+                firestore.collection("users").whereEqualTo("login", login).get()
+                    .addOnSuccessListener { result ->
+                        if (!result.isEmpty) {
+                            if (login != null) {
+                                for (document in result) {
+                                    document.reference.collection("history")
+                                        .whereEqualTo("level", historyLevel).get()
+                                        .addOnSuccessListener { historyResult ->
+                                            if (!historyResult.isEmpty) {
+                                                for (documentHistory in historyResult) {
+                                                    name = documentHistory.getString("name")
+                                                    date = documentHistory.getString("date")
+                                                    completionProgress =
+                                                        documentHistory.getString("completionProgress")
+                                                    level =
+                                                        documentHistory.getLong("level")?.toInt()
+                                                    estimatedTime =
+                                                        documentHistory.getString("estimatedTime")
+                                                    time = documentHistory.getString("time")
+                                                    videoURL = documentHistory.getString("videoURL")
+                                                    if (name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null && videoURL != null) {
+                                                        workoutItem.add(
+                                                            WorkOutItem(
+                                                                name!!,
+                                                                level!!,
+                                                                time!!,
+                                                                estimatedTime!!,
+                                                                date!!,
+                                                                completionProgress!!,
+                                                                videoURL!!
+                                                            )
+                                                        )
+                                                    }
+                                                }
+                                                val adapter = WorkoutItemArrayAdapter(
+                                                    this,
+                                                    R.layout.workout_item,
+                                                    workoutItem
+                                                )
+                                                myList.adapter = adapter
+                                            }
+                                        }
+                                }
+                            } else {
+                                Log.i("usersElse", "error")
+                            }
+                        } else {
+                            Toast.makeText(this, "Histórico vacío", Toast.LENGTH_SHORT)
+                        }
+
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(this, "Error con la base de datos", Toast.LENGTH_SHORT)
+                    }
+                val adapter = WorkoutItemArrayAdapter(this, R.layout.workout_item, workoutItem)
+                myList.adapter = adapter
+                adapter.notifyDataSetChanged()
+            }
         }
     }
 }

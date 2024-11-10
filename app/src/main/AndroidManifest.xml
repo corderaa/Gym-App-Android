@@ -31,7 +31,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".CoachActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".WorkoutsActivity" />
+        <activity android:name=".WorkoutsActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".PlayActivity" />
 
         <meta-data
