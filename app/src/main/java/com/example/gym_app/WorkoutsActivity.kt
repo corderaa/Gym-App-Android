@@ -3,6 +3,7 @@ package com.example.gym_app
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import android.widget.ListView
@@ -36,6 +37,9 @@ class WorkoutsActivity : AppCompatActivity() {
         var estimatedTime: String?
         var time: String?
         var videoURL: String?
+
+        if (UserSesion.getUserAuthority() != null && UserSesion.getUserAuthority() != "Entrenador")
+            coachButton.visibility = View.INVISIBLE
 
         firestore.collection("users").whereEqualTo("login", login).get()
             .addOnSuccessListener { result ->
@@ -93,7 +97,6 @@ class WorkoutsActivity : AppCompatActivity() {
             intent.putExtra("login", login)
             startActivity(intent)
         }
-        // IF CLIENTE COACHBUTTON.SETVISIBILITY(INVISIBLE)
         coachButton.setOnClickListener {
             val intent = Intent(this, CoachActivity::class.java)
             startActivity(intent)
