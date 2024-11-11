@@ -1,6 +1,7 @@
 package com.example.gym_app
 
 import android.content.Intent
+import android.icu.text.DateFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.gym_app.model.WorkOutItem
 import com.example.gym_app.model.WorkoutItemArrayAdapter
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class WorkoutsActivity : AppCompatActivity() {
 
@@ -34,13 +38,14 @@ class WorkoutsActivity : AppCompatActivity() {
         val filterButton: ImageButton = findViewById(R.id.imageButtonFilter4)
         val editTextSearch: TextView = findViewById(R.id.editTextTextSearch4)
 
-        var date: String?
+        var dateString: String?
         var completionProgress: String?
         var level: Int?
         var name: String?
         var estimatedTime: String?
         var time: String?
         var videoURL: String?
+        var dateLong: Long?
 
         if (UserSesion.getUserAuthority() != null && UserSesion.getUserAuthority() != "Entrenador")
             coachButton.visibility = View.INVISIBLE
@@ -55,20 +60,21 @@ class WorkoutsActivity : AppCompatActivity() {
                                     if (!historyResult.isEmpty){
                                         for(documentHistory in historyResult){
                                             name = documentHistory.getString("name")
-                                            date = documentHistory.getString("date")
+                                            dateLong = documentHistory.getLong("date")
                                             completionProgress = documentHistory.getString("completionProgress")
                                             level = documentHistory.getLong("level")?.toInt()
                                             estimatedTime = documentHistory.getString("estimatedTime")
                                             time = documentHistory.getString("time")
                                             videoURL = documentHistory.getString("videoURL")
-                                            if(name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null && videoURL != null) {
+                                            if(name != null && level != null && time != null && estimatedTime != null && dateLong != null && completionProgress != null && videoURL != null) {
+                                                dateString = longDateToString(dateLong!!)
                                                 workoutItem.add(
                                                     WorkOutItem(
                                                         name!!,
                                                         level!!,
                                                         time!!,
                                                         estimatedTime!!,
-                                                        date!!,
+                                                        dateString!!,
                                                         completionProgress!!,
                                                         videoURL!!
                                                     )
@@ -121,7 +127,7 @@ class WorkoutsActivity : AppCompatActivity() {
                                             if (!historyResult.isEmpty) {
                                                 for (documentHistory in historyResult) {
                                                     name = documentHistory.getString("name")
-                                                    date = documentHistory.getString("date")
+                                                    dateLong = documentHistory.getLong("date")
                                                     completionProgress =
                                                         documentHistory.getString("completionProgress")
                                                     level =
@@ -130,14 +136,15 @@ class WorkoutsActivity : AppCompatActivity() {
                                                         documentHistory.getString("estimatedTime")
                                                     time = documentHistory.getString("time")
                                                     videoURL = documentHistory.getString("videoURL")
-                                                    if (name != null && level != null && time != null && estimatedTime != null && date != null && completionProgress != null && videoURL != null) {
+                                                    if (name != null && level != null && time != null && estimatedTime != null && dateLong != null && completionProgress != null && videoURL != null) {
+                                                        dateString = longDateToString(dateLong!!)
                                                         workoutItem.add(
                                                             WorkOutItem(
                                                                 name!!,
                                                                 level!!,
                                                                 time!!,
                                                                 estimatedTime!!,
-                                                                date!!,
+                                                                dateString!!,
                                                                 completionProgress!!,
                                                                 videoURL!!
                                                             )
@@ -169,5 +176,12 @@ class WorkoutsActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         }
+    }
+
+    private fun longDateToString(dateLong : Long) :String{
+        var ret: String
+        val formatDate = SimpleDateFormat("dd-MM-yyyy", Locale.US)
+        ret = formatDate.format(dateLong)
+        return ret
     }
 }
