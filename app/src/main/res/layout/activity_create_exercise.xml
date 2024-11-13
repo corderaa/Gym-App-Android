@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateExercise">
+
+    <EditText
+        android:id="@+id/editTextTextCreateExerciseSeries"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="638dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="202dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewCreateExerciseSeries"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="609dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="253dp"
+        android:text="Series:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCreateExercise"
+        android:layout_width="152dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="826dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/aquamarine"
+        android:text="@string/button_create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCreateExerciseDescription"
+        android:layout_width="365dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="492dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCreateExerciseRest"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="416dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="446dp"
+        android:text="Descanso:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextCreateExerciseRest"
+        android:layout_width="365dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="445dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="400dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextCreateExerciseRepetitions"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="537dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="303dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCreateExerciseRepetitions"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="508dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="354dp"
+        android:text="Repeticiones:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bottonCreateExerciseReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="307dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="778dp"
+        android:backgroundTint="@color/aquamarine"
+        android:text="@string/go_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewLogo3"
+        android:layout_width="82dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="313dp"
+        android:layout_marginBottom="764dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cagaroo" />
+
+    <TextView
+        android:id="@+id/textViewTitleCreateExercise"
+        android:layout_width="367dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="688dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/create_exercise"
+        android:textAlignment="center"
+        android:textColor="@color/aquamarine"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCreateExerciseName"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="636dp"
+        android:text="Nombre:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextCreateExerciseName"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="255dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="585dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCreateExerciseDescription"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="538dp"
+        android:text="Descripcion:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

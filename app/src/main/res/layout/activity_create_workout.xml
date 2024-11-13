@@ -7,6 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".CreateWorkoutActivity">
 
+    <EditText
+        android:id="@+id/editTextTextCreateDescription"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="644dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="196dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCreateDescription"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="615dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="247dp"
+        android:text="Url video"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/bottonCreateReturn"
         android:layout_width="wrap_content"
@@ -56,18 +85,16 @@
 
     <Button
         android:id="@+id/bottonCreateAddWorkout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="299dp"
-        android:layout_marginTop="675dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="168dp"
+        android:layout_width="234dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="33dp"
         android:backgroundTint="@color/aquamarine"
-        android:text="Añadir"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Añadir Ejercicio"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCreateDescription" />
 
     <Button
         android:id="@+id/buttonCreate"
@@ -106,7 +133,7 @@
         android:layout_marginTop="324dp"
         android:layout_marginEnd="281dp"
         android:layout_marginBottom="538dp"
-        android:text="Nombre:"
+        android:text="Nivel:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +147,7 @@
         android:layout_marginTop="416dp"
         android:layout_marginEnd="281dp"
         android:layout_marginBottom="446dp"
-        android:text="Nombre:"
+        android:text="Tiempo:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +161,7 @@
         android:layout_marginTop="508dp"
         android:layout_marginEnd="281dp"
         android:layout_marginBottom="354dp"
-        android:text="Nombre:"
+        android:text="Url video"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -194,20 +221,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="400dp"
         android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinnerExercises"
-        android:layout_width="265dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="675dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginBottom="170dp"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -32,6 +32,9 @@
     <string name="theme">tema</string>
     <string name="create_workout">CREAR WORKOUT</string>
     <string name="button_create">Crear</string>
+    <string name="add_exercise">AÑADIR EJERCICIO</string>
+    <string name="logo">LOGO</string>
+    <string name="create_exercise">Crear Ejercicio</string>
 
     <string-array name="items">
         <item>Cliente</item>

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".CreateExercise"
+            android:exported="false" />
+        <activity
             android:name=".CreateWorkoutActivity"
             android:exported="false" />
         <activity
@@ -31,8 +34,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".CoachActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".WorkoutsActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".WorkoutsActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".PlayActivity" />
 
         <meta-data
