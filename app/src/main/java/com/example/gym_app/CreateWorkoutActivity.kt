@@ -23,7 +23,6 @@ class CreateWorkoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_create_workout)
-        val addExercisesButton: Button = findViewById(R.id.bottonCreateAddWorkout)
         val editTextTextCreateName: EditText = findViewById(R.id.editTextTextCreateName)
         val editTextCreateLevel: EditText = findViewById(R.id.editTextCreateLevel)
         val editTextCreateTime: EditText = findViewById(R.id.editTextCreateTime)
@@ -31,10 +30,10 @@ class CreateWorkoutActivity : AppCompatActivity() {
         val editTextTextCreateDescription: EditText =
             findViewById(R.id.editTextTextCreateDescription)
         val buttonCreate: TextView = findViewById(R.id.buttonCreate)
+        val buttonExit: Button = findViewById(R.id.bottonCreateReturn)
 
-        addExercisesButton.setOnClickListener {
-            val intent = Intent(this, CreateExercise::class.java)
-            startActivity(intent)
+        buttonExit.setOnClickListener{
+            finish()
         }
 
         buttonCreate.setOnClickListener {
