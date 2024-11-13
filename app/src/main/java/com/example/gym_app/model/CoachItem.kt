@@ -87,13 +87,13 @@ class CoachItemArrayAdapter(
         }
 
         deleteButton.setOnClickListener {
-            deleteWorkout(workoutId)
+            deleteWorkout(workoutId, true)
         }
 
         return view
     }
 
-    fun deleteWorkout(workoutId: String) {
+    fun deleteWorkout(workoutId: String, msg: Boolean) {
 
         firestore.collection("workouts").document(workoutId).delete()
             .addOnSuccessListener {
@@ -107,11 +107,13 @@ class CoachItemArrayAdapter(
             }
             .addOnFailureListener { e ->
                 // Error deleting document
-                Toast.makeText(
-                    context,
-                    "Error al eliminar el workout: $e",
-                    Toast.LENGTH_SHORT
-                ).show()
+                if (msg) {
+                    Toast.makeText(
+                        context,
+                        "Error al eliminar el workout: $e",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
     }
 
@@ -123,7 +125,7 @@ class CoachItemArrayAdapter(
         workoutLevel: String,
         workoutTime: String
     ) {
-        deleteWorkout(workoutId)
+        deleteWorkout(workoutId, false)
         val exercisesList = ArrayList<String>()
         val newWorkout = hashMapOf(
             "description" to workoutDescription,
