@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.login)
 
         val registerButton: Button = findViewById(R.id.registerButton)
-        val goingToMenu: Button = findViewById(R.id.menu)
         val rememberMe: CheckBox = findViewById(R.id.rememberMe)
         val userText: EditText = findViewById(R.id.userText)
         val passwordText: EditText = findViewById(R.id.passwordText)
@@ -42,11 +41,6 @@ class LoginActivity : AppCompatActivity() {
             rememberMe.isChecked = false
         } else {
             rememberMe.isChecked = true
-        }
-
-        goingToMenu.setOnClickListener {
-            val intent = Intent(this, WorkoutsActivity::class.java)
-            startActivity(intent)
         }
 
         loginButton.setOnClickListener {
